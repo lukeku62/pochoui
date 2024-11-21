@@ -1,0 +1,9 @@
+{
+  "name": "date-picker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/date-picker/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project date-picker --web",
+  "targets": {}
+}
