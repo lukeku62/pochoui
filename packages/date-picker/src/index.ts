@@ -1,1 +1,1 @@
-export * from './lib/DatePicker';
+export { DatePicker } from './lib/DatePicker';
