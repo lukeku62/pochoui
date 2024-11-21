@@ -1,7 +1,7 @@
-# date-picker
+# pochoui - DatePicker
 
-This library was generated with [Nx](https://nx.dev).
+## Changelog
 
-## Running unit tests
+### 0.0.1
 
-Run `nx test date-picker` to execute the unit tests via [Vitest](https://vitest.dev/).
+- Initial release
