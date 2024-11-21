@@ -1,9 +1,17 @@
 {
   "name": "@pochoui/date-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./index.js",
   "types": "./index.d.ts",
   "license": "MIT",
+  "tags": [
+    "react",
+    "tailwindcss",
+    "date-picker",
+    "ui",
+    "component",
+    "date"
+  ],
   "publishConfig": {
     "access": "public"
   },
