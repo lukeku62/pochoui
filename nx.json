@@ -58,5 +58,19 @@
         "unitTestRunner": "jest"
       }
     }
+  },
+  "release": {
+    "projects": ["date-picker"],
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/packages/date-picker",
+        "additionalFiles": [
+          {
+            "from": "dist/packages/date-picker",
+            "to": "."
+          }
+        ]
+      }
+    }
   }
 }

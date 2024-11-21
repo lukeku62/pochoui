@@ -1,6 +1,6 @@
 {
   "name": "@pochoui/date-picker",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "main": "./index.js",
   "types": "./index.d.ts",
   "license": "MIT",
@@ -12,11 +12,19 @@
     "component",
     "date"
   ],
+  "files": [
+    "dist",
+    "*.js",
+    "*.d.ts",
+    "*.mjs"
+  ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "../../dist/packages/date-picker"
   },
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./index.mjs",
       "require": "./index.js"
     }
