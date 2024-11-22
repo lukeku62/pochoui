@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/packages/date-picker",
+    "declaration": true,
+    "declarationDir": "../../dist/packages/date-picker",
     "types": [
       "node",
       "@nx/react/typings/cssmodule.d.ts",
