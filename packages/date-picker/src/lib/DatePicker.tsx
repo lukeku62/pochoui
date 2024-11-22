@@ -32,7 +32,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({ defaultDate = new Date()
       </button>
       <dialog
         ref={dialogRef}
-        className={`m-0 p-4 rounded-lg shadow-lg border border-gray-200 absolute backdrop:hidden min-w-[280px] ${dialogPositionY === "top"
+        className={`m-0 p-4 rounded-lg shadow-lg border border-gray-200 absolute backdrop:hidden w-fit min-w-[280px] ${dialogPositionY === "top"
           ? "bottom-full mb-1"
           : dialogPositionY === "bottom"
             ? "top-full mt-1"
