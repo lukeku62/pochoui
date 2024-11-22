@@ -21,7 +21,7 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
   build: {
-    outDir: '../../dist/apps/pochoui-app',
+    outDir: 'dist/apps/pochoui-app',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
@@ -32,10 +32,7 @@ export default defineConfig({
         manualChunks: undefined,
       },
     },
-    // Ensure assets are properly handled
     assetsDir: 'assets',
-    // Generate source maps for better debugging
     sourcemap: true,
-    // Ensure clean builds
   },
 });
