@@ -6,5 +6,12 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project pochoui-app --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/pochoui-app"
+      }
+    }
+  }
 }
