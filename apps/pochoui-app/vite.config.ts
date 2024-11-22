@@ -21,7 +21,7 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
   build: {
-    outDir: 'dist/apps/pochoui-app',
+    outDir: '../../dist/apps/pochoui-app',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {

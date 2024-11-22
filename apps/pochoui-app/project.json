@@ -9,8 +9,9 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
+      "outputs": ["{workspaceRoot}/dist/apps/pochoui-app"],
       "options": {
-        "outputPath": "dist/apps/pochoui-app"
+        "outputPath": "{workspaceRoot}/dist/apps/pochoui-app"
       }
     }
   }
