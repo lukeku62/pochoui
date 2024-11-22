@@ -43,6 +43,10 @@ const App = () => {
 
 ## Changelog
 
+### 1.0.1
+
+- Fix component props export
+
 ### 1.0.0
 
 - Initial release
