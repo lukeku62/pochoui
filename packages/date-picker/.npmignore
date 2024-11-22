@@ -1,0 +1,24 @@
+# Test files
+src/lib/**/*.test.ts
+src/lib/**/*.test.tsx
+src/lib/**/*.spec.ts
+src/lib/**/*.spec.tsx
+
+# Storybook files
+src/lib/**/*.stories.tsx
+src/lib/**/*.stories.ts
+.storybook/
+
+# Development files
+tsconfig.json
+tsconfig.*.json
+jest.config.ts
+.eslintrc
+*.tsbuildinfo
+
+# Nx specific
+.nx/
+project.json
+
+# Source maps
+*.map
