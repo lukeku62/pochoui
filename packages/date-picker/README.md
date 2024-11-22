@@ -1,6 +1,8 @@
-# pochoui - DatePicker
+# @pochoui/date-picker
 
 A react component for Date selection based on [tailwindcss](https://tailwindcss.com/)
+
+[![GitHub](https://github.com/favicon.ico) View package source](https://github.com/lukeku62/pochoui/tree/master/packages/date-picker)
 
 ## Usage
 
