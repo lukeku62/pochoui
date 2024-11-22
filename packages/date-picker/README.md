@@ -43,6 +43,10 @@ const App = () => {
 
 ## Changelog
 
+### 1.0.2
+
+- Fix types declaration
+
 ### 1.0.1
 
 - Fix component props export
