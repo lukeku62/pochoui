@@ -1,19 +1,20 @@
+import React from 'react';
 import { useDateManagement } from "./hooks/useDateManagment";
 import { useDialogManagement } from "./hooks/useDialogManagement";
 import { formatDate } from "./utils/dateFormatters";
 import { getDaysInMonth, isSameDay } from "./utils/dateUtils";
 
-export type DatePickerProps = {
+export interface DatePickerProps {
   defaultDate?: Date;
   onChange: (date: Date) => void;
   locale?: string;
   displayButtonClassName?: string;
   dialogPositionY?: "top" | "bottom" | "center";
   dialogPositionX?: "left" | "right" | "center";
-  mainColor?: string; // hex color code
+  mainColor?: string;
   monthExtended?: boolean;
   dateStyle?: "full" | "long" | "short";
-};
+}
 
 export const DatePicker: React.FC<DatePickerProps> = ({ defaultDate = new Date(), onChange, locale = "en-US", displayButtonClassName, dialogPositionY = "bottom", dialogPositionX = "right", mainColor = "#6366f1", dateStyle = "short" }: DatePickerProps) => {
   const {

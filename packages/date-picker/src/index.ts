@@ -1,7 +1,9 @@
-import { DatePicker as DatePickerComponent, DatePickerProps as Props } from './lib/DatePicker';
+import type { DatePickerProps } from './lib/DatePicker';
+import { DatePicker } from './lib/DatePicker';
 
-// Re-export with all types inline
-export type DatePickerProps = Props;
-export const DatePicker: React.FC<DatePickerProps> = DatePickerComponent;
+export type { DatePickerProps };
+export { DatePicker };
 
-export default DatePicker;
+// Also explicitly type the default export
+const DefaultExport: React.FC<DatePickerProps> = DatePicker;
+export default DefaultExport;
