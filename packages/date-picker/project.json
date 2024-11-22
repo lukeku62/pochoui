@@ -4,8 +4,17 @@
   "sourceRoot": "packages/date-picker/src",
   "projectType": "library",
   "tags": [],
-  "// targets": "to see all targets run: nx show project date-picker --web",
   "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/date-picker",
+        "generatePackageJson": true,
+        "dts": true
+      }
+    },
     "nx-release-publish": {
       "executor": "@nx/js:release-publish",
       "dependsOn": ["build"]

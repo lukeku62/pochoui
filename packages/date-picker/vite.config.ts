@@ -16,7 +16,12 @@ export default defineConfig({
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-    }),
+      include: ['src'],
+      beforeWriteFile: (filePath, content) => ({
+        filePath: filePath.replace('/src/', '/'),
+        content,
+      }),
+    })
   ],
   // Uncomment this if you are using workers.
   // worker: {
