@@ -1,3 +1,6 @@
 {
-  "installCommand": "yum install -y hostname && npm i -g pnpm && pnpm install"
+  "installCommand": "yum install -y hostname && npm i -g pnpm && pnpm install",
+  "buildCommand": "pnpm nx build pochoui-app --prod",
+  "outputDirectory": "dist/apps/pochoui-app",
+  "framework": "vite"
 }

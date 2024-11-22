@@ -27,5 +27,15 @@ export default defineConfig({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+    // Ensure assets are properly handled
+    assetsDir: 'assets',
+    // Generate source maps for better debugging
+    sourcemap: true,
+    // Ensure clean builds
   },
 });
