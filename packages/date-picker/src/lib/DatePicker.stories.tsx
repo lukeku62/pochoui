@@ -41,3 +41,14 @@ export const WithCustomDisplayButtonClassName = {
     displayButtonClassName: "bg-blue-500 text-white rounded-full",
   },
 };
+
+export const FullScreenContainer = {
+  args: {},
+  decorators: [
+    (Story: React.FC) => (
+      <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
+        <Story />
+      </div>
+    ),
+  ],
+};
