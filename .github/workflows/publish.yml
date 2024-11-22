@@ -28,6 +28,9 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
 
+      - name: Run tests
+        run: pnpm exec nx affected -t test
+
       - name: Build and Publish affected packages
         run: pnpm exec nx affected -t nx-release-publish
         env:

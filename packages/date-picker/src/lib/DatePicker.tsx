@@ -3,7 +3,7 @@ import { useDialogManagement } from "./hooks/useDialogManagement";
 import { formatDate } from "./utils/dateFormatters";
 import { getDaysInMonth, isSameDay } from "./utils/dateUtils";
 
-type DatePickerProps = {
+export type DatePickerProps = {
   defaultDate?: Date;
   onChange: (date: Date) => void;
   locale?: string;
@@ -15,7 +15,7 @@ type DatePickerProps = {
   dateStyle?: "full" | "long" | "short";
 };
 
-export const DatePicker = ({ defaultDate = new Date(), onChange, locale = "en-US", displayButtonClassName, dialogPositionY = "bottom", dialogPositionX = "right", mainColor = "#6366f1", dateStyle = "short" }: DatePickerProps) => {
+export const DatePicker: React.FC<DatePickerProps> = ({ defaultDate = new Date(), onChange, locale = "en-US", displayButtonClassName, dialogPositionY = "bottom", dialogPositionX = "right", mainColor = "#6366f1", dateStyle = "short" }: DatePickerProps) => {
   const {
     date,
     setDate,
