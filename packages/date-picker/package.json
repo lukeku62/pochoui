@@ -1,6 +1,6 @@
 {
   "name": "@pochoui/date-picker",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "./index.js",
   "module": "./index.mjs",
   "types": "./index.d.ts",
@@ -9,6 +9,7 @@
     "type": "git",
     "url": "https://github.com/lukeku62/pochoui/tree/master/packages/date-picker"
   },
+  "homepage": "https://pochoui.vercel.app/",
   "author": {
     "name": "lukeku62",
     "email": "luca.reverberi62@gmail.com"
