@@ -15,4 +15,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/pochoui-app',
+  passWithNoTests: true
 };
