@@ -43,6 +43,10 @@ const App = () => {
 
 ## Changelog
 
+### 1.1.0
+
+- Min viable product
+
 ### 1.0.2
 
 - Fix types declaration

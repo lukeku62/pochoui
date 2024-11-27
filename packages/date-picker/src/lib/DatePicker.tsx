@@ -1,9 +1,11 @@
-import React from 'react';
 import type { DatePickerProps } from '../index';
 import { useDateManagement } from "./hooks/useDateManagment";
 import { useDialogManagement } from "./hooks/useDialogManagement";
 import { formatDate } from "./utils/dateFormatters";
-import { getDaysInMonth, isSameDay } from "./utils/dateUtils";
+import { DialogHeader } from "./components/DialogHeader";
+import { MonthNavigator } from "./components/MonthNavigator";
+import { YearSelector } from "./components/YearSelector";
+import { DayGrid } from "./components/DayGrid";
 
 export const DatePicker: React.FC<DatePickerProps> = ({ defaultDate = new Date(), onChange, locale = "en-US", displayButtonClassName, dialogPositionY = "bottom", dialogPositionX = "right", mainColor = "#6366f1", dateStyle = "short" }: DatePickerProps) => {
   const {
@@ -27,97 +29,56 @@ export const DatePicker: React.FC<DatePickerProps> = ({ defaultDate = new Date()
 
   return (
     <div className="relative inline-block">
-      <button className={`border border-gray-200 rounded-md px-2 py-1 ${displayButtonClassName}`} onClick={toggleDialog}>
+      <button
+        className={`inline-flex items-center border border-gray-200 rounded-md px-2 py-1 ${displayButtonClassName || ''}`}
+        onClick={toggleDialog}
+      >
         {formatDate(date, locale, dateStyle)}
       </button>
       <dialog
         ref={dialogRef}
-        className={`m-0 p-4 rounded-lg shadow-lg border border-gray-200 absolute backdrop:hidden w-fit min-w-[280px] ${dialogPositionY === "top"
-          ? "bottom-full mb-1"
-          : dialogPositionY === "bottom"
-            ? "top-full mt-1"
-            : dialogPositionY === "center"
-              ? "top-1/2 -translate-y-1/2"
-              : dialogPositionX === "left"
-                ? "right-full mr-1"
-                : dialogPositionX === "right"
-                  ? "left-full ml-1"
-                  : "left-1/2 -translate-x-1/2"
+        className={`m-0 p-4 rounded-lg shadow-lg border border-gray-200 absolute backdrop:hidden w-fit min-w-[310px] max-h-[80vh] overflow-auto ${dialogPositionY === "top"
+            ? "bottom-full mb-1"
+            : dialogPositionY === "bottom"
+              ? "top-full mt-1"
+              : dialogPositionY === "center"
+                ? "top-1/2 -translate-y-1/2"
+                : dialogPositionX === "left"
+                  ? "right-full mr-1"
+                  : dialogPositionX === "right"
+                    ? "left-full ml-1"
+                    : "left-1/2 -translate-x-1/2"
           }`}
       >
         <form method="dialog" className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
-            {/* Month/Year Navigation */}
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={handlePrevMonth}
-                className="p-1 hover:bg-gray-100 rounded-full text-gray-600"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={mainColor}>
-                  <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowYearSelect(!showYearSelect)}
-                className="px-2 py-1 hover:bg-gray-100 rounded text-gray-600"
-              >
-                {viewDate.toLocaleString(locale, { month: 'long', year: 'numeric' })}
-              </button>
-              <button
-                type="button"
-                onClick={handleNextMonth}
-                className="p-1 hover:bg-gray-100 rounded-full text-gray-600"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={mainColor}>
-                  <path d="M400-240 357-283l198-198-198-198 43-43 241 241-241 241Z" />
-                </svg>
-              </button>
-            </div>
-            {/* Close button */}
-            <button type="button" className="p-1 hover:bg-gray-100 rounded-full" onClick={() => dialogRef.current?.close()}>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={mainColor}>
-                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-              </svg>
-            </button>
-          </div>
+          <DialogHeader
+            onClose={() => dialogRef.current?.close()}
+            mainColor={mainColor}
+          >
+            <MonthNavigator
+              viewDate={viewDate}
+              locale={locale}
+              mainColor={mainColor}
+              onPrevMonth={handlePrevMonth}
+              onNextMonth={handleNextMonth}
+              onYearSelectToggle={() => setShowYearSelect(!showYearSelect)}
+            />
+          </DialogHeader>
 
           {showYearSelect ? (
-            <div className="grid grid-cols-4 gap-2 max-h-[200px] overflow-y-auto">
-              {Array.from({ length: 100 }, (_, i) => viewDate.getFullYear() - 50 + i).map((year) => (
-                <button
-                  key={year}
-                  type="button"
-                  onClick={() => handleYearChange(year)}
-                  className={`p-2 text-sm rounded hover:bg-gray-100`}
-                  style={year === viewDate.getFullYear() ? { backgroundColor: mainColor, color: 'white' } : undefined}
-                >
-                  {year}
-                </button>
-              ))}
-            </div>
+            <YearSelector
+              viewDate={viewDate}
+              locale={locale}
+              mainColor={mainColor}
+              onYearChange={handleYearChange}
+            />
           ) : (
-            <div className="grid grid-cols-7 gap-2">
-              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                <div key={day} className="text-center text-sm font-medium text-gray-600 w-8">
-                  {day}
-                </div>
-              ))}
-
-              {getDaysInMonth(viewDate).map((day, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => handleDateSelect(day)}
-                  className={`p-2 text-sm rounded hover:bg-gray-100 w-8 h-8 flex items-center justify-center ${day.getMonth() !== viewDate.getMonth() ? 'text-gray-400' : ''
-                    }`}
-                  style={isSameDay(day, date) ? { backgroundColor: mainColor, color: 'white' } : undefined}
-                >
-                  {day.getDate()}
-                </button>
-              ))}
-            </div>
+            <DayGrid
+              viewDate={viewDate}
+              selectedDate={date}
+              mainColor={mainColor}
+              onDateSelect={handleDateSelect}
+            />
           )}
         </form>
       </dialog>
