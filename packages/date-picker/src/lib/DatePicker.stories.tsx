@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import { DatePicker } from './DatePicker';
 
 const meta: Meta<typeof DatePicker> = {
@@ -6,7 +6,6 @@ const meta: Meta<typeof DatePicker> = {
   title: 'DatePicker',
 };
 export default meta;
-type Story = StoryObj<typeof DatePicker>;
 
 export const Primary = {
   args: {},
@@ -18,11 +17,7 @@ export const WithLocaleIT = {
   },
 };
 
-export const WithMonthExtended = {
-  args: {
-    monthExtended: true,
-  },
-};
+
 
 export const WithLocaleFR = {
   args: {
@@ -36,19 +31,33 @@ export const WithLocaleES = {
   },
 };
 
+export const WithLocaleJP = {
+  args: {
+    locale: "ja-JP",
+  },
+};
+
+export const DateStyleShort = {
+  args: {
+    dateStyle: "short",
+  },
+};
+
+export const DateStyleLong = {
+  args: {
+    dateStyle: "long",
+  },
+};
+
+export const DateStyleFull = {
+  args: {
+    dateStyle: "full",
+  },
+};
+
 export const WithCustomDisplayButtonClassName = {
   args: {
     displayButtonClassName: "bg-blue-500 text-white rounded-full",
   },
 };
 
-export const FullScreenContainer = {
-  args: {},
-  decorators: [
-    (Story: React.FC) => (
-      <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
-        <Story />
-      </div>
-    ),
-  ],
-};
